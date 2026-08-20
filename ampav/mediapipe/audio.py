@@ -6,6 +6,7 @@ from mediapipe.tasks.python.audio import AudioClassifierOptions, AudioClassifier
 from mediapipe.tasks.python.components.containers import AudioData
 import logging
 import argparse
+from ampav.core.logging import LOG_FORMAT
 from ampav.core.media import load_and_resample_audio_file
 from pathlib import Path
 from ampav.core.schema.audio import AudioEffect, AudioEffectType, AudioEffects
@@ -172,7 +173,8 @@ def cli_mediapipe_audio_classification():
     parser.add_argument("--debug", action="store_true", help="Enable debugging")
     parser.add_argument("--format", choices=['yaml', 'json', 'pickle'], default='yaml', help="Output format, default yaml")
     args = parser.parse_args()
-
+    logging.basicConfig(format=LOG_FORMAT, level=logging.DEBUG if args.debug else logging.INFO)
+    
     result = classify_audio(args.file, 0, args.cutoff)                  
     logging.info(f"Saving data to {args.output} in {args.format} format")
     dump_data(result, args.format, args.output)

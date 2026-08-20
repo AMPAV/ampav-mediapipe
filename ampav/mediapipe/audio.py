@@ -164,10 +164,11 @@ def classify_audio(media_file: Path, audio_stream: int=0, cutoff: float = 0.500)
 
 def cli_mediapipe_audio_classification():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--version", action="version", version=__version__)
     parser.add_argument("file", type=Path, help="File to classify")
     parser.add_argument("output", type=Path, help="Output file")    
     parser.add_argument("--cutoff", type=float, default=0.5, help="Score cutoff (default 0.5)")
-    parser.add_argument("--device", type=str, default=None, help="Device to use")
+    #parser.add_argument("--device", type=str, default=None, help="Device to use")
     parser.add_argument("--debug", action="store_true", help="Enable debugging")
     parser.add_argument("--format", choices=['yaml', 'json', 'pickle'], default='yaml', help="Output format, default yaml")
     args = parser.parse_args()

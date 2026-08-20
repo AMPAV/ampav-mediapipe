@@ -1,0 +1,33 @@
+[project]
+name = "ampav-mediapipe"
+dynamic = ["version"]
+description = "MediaPipe tooling for the AMPAV environment"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",   
+]
+authors = [
+    {name = "Brian Wheeler", email="bdwheele@iu.edu"},
+]
+
+requires-python = ">=3.12"
+dependencies = [
+    "ampav-core>=0.0.21",
+    "mediapipe==1.0.1"
+]
+
+[project.urls]
+Homepage = "https://github.com/AMPAV/ampav-mediapipe"
+Repository = "https://github.com/AMPAV/ampav-mediapipe.git"
+Issues = "https://github.com/AMPAV/ampav-mediapipe/issues"
+
+
+[project.scripts]
+ampav_mediapipe_audio_classification = "ampav.mediapipe.audio:cli_mediapipe_audio_classification"
+
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

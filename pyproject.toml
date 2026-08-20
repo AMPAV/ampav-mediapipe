@@ -31,3 +31,6 @@ ampav_mediapipe_audio_classification = "ampav.mediapipe.audio:cli_mediapipe_audi
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "ampav.mediapipe.__version__"}
